@@ -1,0 +1,164 @@
+.main_section{
+  background-color: #050505;
+  color: #ffff;
+}
+.hackers{
+  height: 30px;
+  width: 40px;
+}
+
+/*----------------- Button Animation --------------*/
+
+.glow-on-hover {
+    width: 120px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #ffff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-family:"Merriweather", serif;
+  }
+  
+  .glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  .glow-on-hover:active {
+    color: #000
+  }
+  
+  .glow-on-hover:active:after {
+    background: transparent;
+  }
+  
+  .glow-on-hover:hover:before {
+    opacity: 1;
+  }
+  
+  .glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+  }
+
+
+/*------------ text animation --------------*/
+
+  @keyframes cursor {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: black;
+    }
+  }
+  @keyframes typing {
+    from {
+      width: 100%;
+    }
+    90%, to {
+      width: 0;
+    }
+  }
+  @keyframes slide {
+    33.3333333333% {
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+    to {
+      font-size: 0;
+      letter-spacing: 0;
+    }
+  }
+  .typing-slider {
+    font-family: Consolas, monospace;
+    white-space: nowrap;
+    margin-left: 90px;
+    font-size: 0;
+    color: #00ff00;
+  }
+  
+  .typing-slider h5 {
+    position: relative;
+    display: inline;
+    font-size: 0;
+    letter-spacing: 0;
+    animation: slide 15s step-start infinite;
+  }
+  
+  .typing-slider h5::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 255, 255, 0);
+    animation: typing 5s infinite, cursor 1s infinite;
+  }
+  
+  .typing-slider h5:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .typing-slider h5:nth-child(1)::after {
+    animation-delay: 0s;
+    animation-timing-function: steps(16), step-end;
+  }
+  
+  .typing-slider h5:nth-child(2) {
+    animation-delay: 5s;
+  }
+  .typing-slider h5:nth-child(2)::after {
+    animation-delay: 5s;
+    animation-timing-function: steps(23), step-end;
+  }
+  
+  .typing-slider h5:nth-child(3) {
+    animation-delay: 10s;
+  }
+  .typing-slider h5:nth-child(3)::after {
+    animation-delay: 10s;
+    animation-timing-function: steps(12), step-end;
+  }
+
+/*----------------- Responsive --------------------*/
+
+
+@media (max-width: 1120px) {}
+
+@media (max-width: 992px) {
+    *{
+        height: auto;
+    }
+    .img_section{
+        padding-top: 30px;
+    }
+}
